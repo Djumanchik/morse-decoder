@@ -7,9 +7,7 @@
     "test": "mocha test.js",
     "postinstall": "node postinstall.js"
   },
-  "engines": {
-    "node": "<=14"
-  },
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/romacher/morse-decoder.git"
@@ -22,7 +20,7 @@
   "homepage": "https://github.com/romacher/morse-decoder#readme",
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "colors": "^1.4.0",

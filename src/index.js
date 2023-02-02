@@ -38,8 +38,29 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
-}
+    let space = '**********';
+    let words = expr.split(space); //разбивка на слова
+    let newWords = words.map(word => { // слова в слово
+        let letters = word.match(/.{10}/g);// разбивка на десятизачные буквы
+        let newWord = ''; // формирую новое слово
+        for (let i = 0; i < letters.length; i++) {
+            let symbols = letters[i].match(/.{2}/g).map(i => { // разбивка на пары для поиска точек и тире
+                i = Number(i); // отброс лишних нулей
+                if (i === 10) {
+                    return '.';
+                } else if (i === 11) {
+                    return '-';
+                } else {
+                    return '';
+                }
+            }).join(''); // цифры стали точками и тире
+            newWord = newWord + MORSE_TABLE[symbols] || ''; // поиск в объекте морзе значения нужной буквы
+        }
+        return newWord; // возвращаю слово
+    }).join(' '); // собираю предложение через пробелы
+    console.log(newWords);
+
+};
 
 module.exports = {
     decode
