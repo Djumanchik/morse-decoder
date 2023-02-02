@@ -58,8 +58,7 @@ function decode(expr) {
         }
         return newWord; // возвращаю слово
     }).join(' '); // собираю предложение через пробелы
-    console.log(newWords);
-
+    return newWords;
 };
 
 module.exports = {
